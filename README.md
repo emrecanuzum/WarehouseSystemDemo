@@ -8,6 +8,10 @@ ASP.NET MVC nugget paketi ile birleştirdim. Böylece temel kullanıcı girişi 
 
 
 ### Nasıl Çalıştırılır?
+Gerekli Uygulamalar:
+- Microsoft SQL Server Management Studio
+- Visual Studio 2022 w/ASP.NET 
+
 Öncelikle database dependency klasöründe bulunan veritabanı kopyalarını **Microsoft SQL Server Management Studio**'ya
 kurmanız gerekiyor. Klasörde bulunan .mdf dosyalarını *"C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA"*
 konumuna kopyaladıktan sonra database uygulamasının içinden kolaylıkla kurulumunu sağlayabilirsiniz.
@@ -31,3 +35,5 @@ Bu noktadan sonra başarıyla Model klasörüne veritabanınızın eklendiğini 
 4/4
 
 ![dependency3](https://user-images.githubusercontent.com/73427323/211586335-7c8adb96-4348-4446-8b59-d2648bb367df.png)
+
+Tebrikler! Sisteme yerel veritabanınızı bağladınız ve artık uygulamayı çalıştırabilirsiniz.
