@@ -14,4 +14,5 @@ konumuna kopyaladıktan sonra database uygulamasının içinden kolaylıkla kuru
 
 Veritabanımızı kurduktan sonra sıra ASP.NET'in Model bölümüne database bağlantısını kurmaya geliyor.
 
-![DatabaseDependency](https://prnt.sc/mnlzNu14sDs9)
+
+![Database-Dependency](https://user-images.githubusercontent.com/73427323/211585739-906402f6-4bcf-471f-839e-86733a5d15d9.png)
