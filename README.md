@@ -98,5 +98,10 @@ Things I intend to add in the future of the project:
 - New Captcha usage.
 - Upload to a domain.
 
+### 
+If you have any problem with code, please contact me from LinkedIn or Instagram
+
+https://linktr.ee/emrecanuzum
+
 
 
