@@ -37,3 +37,13 @@ Bu noktadan sonra başarıyla Model klasörüne veritabanınızın eklendiğini 
 ![dependency3](https://user-images.githubusercontent.com/73427323/211586335-7c8adb96-4348-4446-8b59-d2648bb367df.png)
 
 Tebrikler! Sisteme yerel veritabanınızı bağladınız ve artık uygulamayı çalıştırabilirsiniz.
+
+### Nasıl Kullanılır?
+
+Sisteme giriş yaptığınızda öncelikle karşınızda login sayfası belirecek. Burada admin@admin.com ve 12345 bigilerini kullanarak ve Captcha doğrulamasını geçerek giriş yapabilirsiniz. 
+
+(Not: Sistem oluşturulan kullanıcıların şifrelerini hashlediğinden dolayı veritabanında şifreleri görüntüleyemeyeceksiniz. Bu nedenle veritabanınızdan kullanıcılarınızın şifre sızdırımı gerçekleştirilemez.)
+
+![Screenshot_12](https://user-images.githubusercontent.com/73427323/211587269-4ec645f8-eb9e-4e23-a59a-07dec0f17233.png)
+
+
