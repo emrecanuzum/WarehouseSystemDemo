@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="heas_depoModelStoreContainer" CdmEntityContainer="heas_depoEntities">
+    <EntitySetMapping Name="CategoryTable">
+      <EntityTypeMapping TypeName="heas_depoModel.CategoryTable">
+        <MappingFragment StoreEntitySet="CategoryTable">
+          <ScalarProperty Name="dCategory" ColumnName="dCategory" />
+          <ScalarProperty Name="dCategoryID" ColumnName="dCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeleteProcess">
+      <EntityTypeMapping TypeName="heas_depoModel.DeleteProcess">
+        <MappingFragment StoreEntitySet="DeleteProcess">
+          <ScalarProperty Name="dSNum" ColumnName="dSNum" />
+          <ScalarProperty Name="dCategoryID" ColumnName="dCategoryID" />
+          <ScalarProperty Name="dProductInfo" ColumnName="dProductInfo" />
+          <ScalarProperty Name="dReason" ColumnName="dReason" />
+          <ScalarProperty Name="dDate" ColumnName="dDate" />
+          <ScalarProperty Name="dName" ColumnName="dName" />
+          <ScalarProperty Name="dSurname" ColumnName="dSurname" />
+          <ScalarProperty Name="dMethod" ColumnName="dMethod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="heas_depoModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="heas_depoModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseTbl">
+      <EntityTypeMapping TypeName="heas_depoModel.WarehouseTbl">
+        <MappingFragment StoreEntitySet="WarehouseTbl">
+          <ScalarProperty Name="dCategoryID" ColumnName="dCategoryID" />
+          <ScalarProperty Name="dInfo" ColumnName="dInfo" />
+          <ScalarProperty Name="dSN" ColumnName="dSN" />
+          <ScalarProperty Name="dHEASID" ColumnName="dHEASID" />
+          <ScalarProperty Name="dDescription" ColumnName="dDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeletedView">
+      <EntityTypeMapping TypeName="heas_depoModel.DeletedView">
+        <MappingFragment StoreEntitySet="DeletedView">
+          <ScalarProperty Name="dCategory" ColumnName="dCategory" />
+          <ScalarProperty Name="dProductInfo" ColumnName="dProductInfo" />
+          <ScalarProperty Name="dSNum" ColumnName="dSNum" />
+          <ScalarProperty Name="dReason" ColumnName="dReason" />
+          <ScalarProperty Name="dDate" ColumnName="dDate" />
+          <ScalarProperty Name="dName" ColumnName="dName" />
+          <ScalarProperty Name="dSurname" ColumnName="dSurname" />
+          <ScalarProperty Name="dMethod" ColumnName="dMethod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MainView">
+      <EntityTypeMapping TypeName="heas_depoModel.MainView">
+        <MappingFragment StoreEntitySet="MainView">
+          <ScalarProperty Name="dCategory" ColumnName="dCategory" />
+          <ScalarProperty Name="dInfo" ColumnName="dInfo" />
+          <ScalarProperty Name="dSN" ColumnName="dSN" />
+          <ScalarProperty Name="dHEASID" ColumnName="dHEASID" />
+          <ScalarProperty Name="dDescription" ColumnName="dDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="heas_depoModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="heas_depoModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="heas_depoModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="heas_depoModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="heas_depoModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="heas_depoModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="heas_depoModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "NewProduct";
+}
+@model List<HeasDepo.Models.CategoryTable>
+
+
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori</label>
+        @Html.DropDownList("dCategoryID", new SelectList(ViewBag.data, "dCategoryID", "dCategory"))
+    </div>
+    <div>
+        <label>Bilgi</label>
+        <input type="text" class="form-control" name="dInfo" />
+    </div>
+    <div>
+        <label>Serial Number</label>
+        <input type="text" class="form-control" name="dSN" />
+    </div>
+    <div>
+        <label>HEAS ID</label>
+        <input type="text" class="form-control" name="dHEASID" />
+    </div>
+    <div>
+        <label>Açıklama</label>
+        <input type="text" class="form-control" name="dDescription" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Add Product</button>
+
+    </div>
+</form>
+

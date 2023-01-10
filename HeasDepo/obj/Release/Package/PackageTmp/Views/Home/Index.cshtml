@@ -1,0 +1,129 @@
+﻿@model HeasDepo.Models.Login
+@using CaptchaMvc.HtmlHelpers;
+@using CaptchaMvc;
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('../../Content/bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 10%;
+            padding: 10px 10px;
+        }
+
+        #cap {
+            position: relative;
+            left: 10%;
+            top: 0%;
+            padding: 10px 10px;
+        }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .field-validation-error {
+            color: darkred;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("LoginProcess", "Home", FormMethod.Post))
+        {
+        <table id="login-table">
+            <tr>
+                <td></td>
+                <td>HEAS Login</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Email)
+                </td>
+                <td>
+                    @Html.EditorFor(m => m.Email)
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(m => m.Email)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Password)
+                </td>
+                <td>
+                    @Html.EditorFor(m => m.Password)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(m => m.Password)</td>
+            </tr>
+            <tr>
+               
+                    @Html.Captcha(5)
+                    <p class="text-danger">@ViewBag.ErrorMessage</p>
+          
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="name" value="login" />
+                    <input type="reset" name="name" value="clear" />
+                </td>
+            </tr>
+
+
+
+
+
+
+        </table>
+        }
+
+
+    </div>
+
+    @*@Html.MathCaptcha()*@
+
+    @*
+        [Required(ErrorMessage = "This part is Required.")]
+        [DisplayName("E-Mail :  ")]
+        public string Email { get; set; }
+
+
+        [DisplayName("Password :")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "This part is Required.")]
+
+    *@
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+</body>
+
+
+
+</html>

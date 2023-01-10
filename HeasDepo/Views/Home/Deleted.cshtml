@@ -1,0 +1,40 @@
+﻿@using HeasDepo.Models
+@model List<DeletedView>
+
+<head>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+
+<div id="dTable">
+    <table class="table-bordered">
+        <tr>
+            <th>Category</th>
+            <th>Info</th>
+            <th>Serial Number</th>
+            <th>Reason</th>
+            <th>Method</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.dCategory</td>
+                    <td>@item.dProductInfo</td>
+                    <td>@item.dSNum</td>
+                    <td>@item.dReason</td>
+                    <td>@item.dMethod</td>
+                    <td>@item.dDate</td>
+                    <td>@item.dName</td>
+                    <td>@item.dSurname</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+    <a id="add_prod" href="/Home/List/" class="btn btn-warning">Back</a>
+
+</div>

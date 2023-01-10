@@ -1,0 +1,30 @@
+﻿
+@model HeasDepo.Models.WarehouseTbl
+
+
+@using (Html.BeginForm("Deletion", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Kategori</label><br />
+        @Html.TextBoxFor(m => m.dCategoryID, new { @class = "form-control" })
+        <br />
+        <label>Bilgi</label>  <br />
+        @Html.TextBoxFor(m => m.dInfo, new { @class = "form-control" })
+
+        <label>Serial Number</label><br />
+        @Html.TextBoxFor(m => m.dSN, new { @class = "form-control" })
+
+        <label>İmha Nedeni</label><br />
+        <input type="text" class="form-control" name="dReason" />
+
+        <label>İmha Türü</label><br />
+        <input type="text" class="form-control" name="dMethod" />
+
+
+
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Delete Product</button>
+    </div>
+}

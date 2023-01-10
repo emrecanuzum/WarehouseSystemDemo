@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="heas_depoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CategoryTable">
+    <Key>
+      <PropertyRef Name="dCategoryID" />
+    </Key>
+    <Property Name="dCategory" Type="varchar" MaxLength="50" />
+    <Property Name="dCategoryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeleteProcess">
+    <Key>
+      <PropertyRef Name="dSNum" />
+    </Key>
+    <Property Name="dSNum" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dCategoryID" Type="int" />
+    <Property Name="dProductInfo" Type="varchar" MaxLength="50" />
+    <Property Name="dReason" Type="varchar" MaxLength="50" />
+    <Property Name="dDate" Type="date" />
+    <Property Name="dName" Type="varchar" MaxLength="50" />
+    <Property Name="dSurname" Type="varchar" MaxLength="50" />
+    <Property Name="dMethod" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="WarehouseTbl">
+    <Key>
+      <PropertyRef Name="dSN" />
+    </Key>
+    <Property Name="dCategoryID" Type="int" />
+    <Property Name="dInfo" Type="varchar" MaxLength="200" />
+    <Property Name="dSN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dHEASID" Type="varchar" MaxLength="50" />
+    <Property Name="dDescription" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'heas_depo.dbo.DeletedView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeletedView">
+    <Key>
+      <PropertyRef Name="dSNum" />
+    </Key>
+    <Property Name="dCategory" Type="varchar" MaxLength="50" />
+    <Property Name="dProductInfo" Type="varchar" MaxLength="50" />
+    <Property Name="dSNum" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dReason" Type="varchar" MaxLength="50" />
+    <Property Name="dDate" Type="date" />
+    <Property Name="dName" Type="varchar" MaxLength="50" />
+    <Property Name="dSurname" Type="varchar" MaxLength="50" />
+    <Property Name="dMethod" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'heas_depo.dbo.MainView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MainView">
+    <Key>
+      <PropertyRef Name="dSN" />
+    </Key>
+    <Property Name="dCategory" Type="varchar" MaxLength="50" />
+    <Property Name="dInfo" Type="varchar" MaxLength="200" />
+    <Property Name="dSN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dHEASID" Type="varchar" MaxLength="50" />
+    <Property Name="dDescription" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="heas_depoModelStoreContainer">
+    <EntitySet Name="CategoryTable" EntityType="Self.CategoryTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeleteProcess" EntityType="Self.DeleteProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WarehouseTbl" EntityType="Self.WarehouseTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeletedView" EntityType="Self.DeletedView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeletedView].[dCategory] AS [dCategory], 
+    [DeletedView].[dProductInfo] AS [dProductInfo], 
+    [DeletedView].[dSNum] AS [dSNum], 
+    [DeletedView].[dReason] AS [dReason], 
+    [DeletedView].[dDate] AS [dDate], 
+    [DeletedView].[dName] AS [dName], 
+    [DeletedView].[dSurname] AS [dSurname], 
+    [DeletedView].[dMethod] AS [dMethod]
+    FROM [dbo].[DeletedView] AS [DeletedView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="MainView" EntityType="Self.MainView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MainView].[dCategory] AS [dCategory], 
+    [MainView].[dInfo] AS [dInfo], 
+    [MainView].[dSN] AS [dSN], 
+    [MainView].[dHEASID] AS [dHEASID], 
+    [MainView].[dDescription] AS [dDescription]
+    FROM [dbo].[MainView] AS [MainView]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

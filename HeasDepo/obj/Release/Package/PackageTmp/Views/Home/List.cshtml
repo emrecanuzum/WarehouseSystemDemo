@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "MainView";
+    if (Session["userName"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+@using HeasDepo.Models
+@model List<MainView>
+
+<html>
+<head>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="dTable">
+        <table class="table-bordered">
+            <tr>
+                <th>Category</th>
+                <th>Info</th>
+                <th>Serial Number</th>
+                <th>Heas ID</th>
+                <th>Description</th>
+                <th> </th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.dCategory</td>
+                        <td>@item.dInfo</td>
+                        <td>@item.dSN</td>
+                        <td>@item.dHEASID</td>
+                        <td>@item.dDescription</td>
+                        <td>
+                            <a href="/Home/DeleteProduct/@item.dSN" class="btn btn-danger">Delete</a>
+                            <a href="/Home/UpdateProduct/@item.dSN" class="btn btn-success">Update</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a id="add_prod" href="/Home/NewProduct/" class="btn btn-info">Add Product</a>
+
+    <h3>Hoşgeldin @Session["userName"]</h3>
+    @if (@Session["userTitle"].ToString() == "Admin")
+    {
+        <a id="add_user" href="/Home/NewUser/" class="btn btn-success">Add User</a>
+        <a id="add_deleted" href="/Home/Deleted/" class="btn btn-warning">Deleted Items</a>
+    }
+
+
+</body>
+
+
+</html>

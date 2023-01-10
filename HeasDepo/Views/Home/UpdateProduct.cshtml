@@ -1,0 +1,31 @@
+﻿@using HeasDepo.Models
+@model HeasDepo.Models.WarehouseTbl
+
+@{
+    ViewBag.Title = "UpdateProduct";
+}
+
+@using (Html.BeginForm("UpdateProductProcess", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Kategori</label><br />
+        @Html.DropDownList("dCategoryID", new SelectList(ViewBag.data, "dCategoryID", "dCategory"))
+        <br />
+        <label>Bilgi</label>  <br />
+        @Html.TextBoxFor(m => m.dInfo, new { @class = "form-control" })
+
+        <label>Serial Number</label><br />
+        @Html.TextBoxFor(m => m.dSN, new { @class = "form-control" })
+        
+        <label>HEAS ID</label><br />
+        @Html.TextBoxFor(m => m.dHEASID, new { @class = "form-control" })
+
+        <label>Açıklama</label><br />
+        @Html.TextBoxFor(m => m.dDescription, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Update Product</button>
+    </div>
+}
+
+

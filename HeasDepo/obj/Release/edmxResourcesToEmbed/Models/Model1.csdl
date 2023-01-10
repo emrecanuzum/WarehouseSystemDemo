@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="heas_depoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CategoryTable">
+    <Key>
+      <PropertyRef Name="dCategoryID" />
+    </Key>
+    <Property Name="dCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dCategoryID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeleteProcess">
+    <Key>
+      <PropertyRef Name="dSNum" />
+    </Key>
+    <Property Name="dSNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dCategoryID" Type="Int32" />
+    <Property Name="dProductInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dDate" Type="DateTime" Precision="0" />
+    <Property Name="dName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="WarehouseTbl">
+    <Key>
+      <PropertyRef Name="dSN" />
+    </Key>
+    <Property Name="dCategoryID" Type="Int32" />
+    <Property Name="dInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="dSN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dHEASID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DeletedView">
+    <Key>
+      <PropertyRef Name="dSNum" />
+    </Key>
+    <Property Name="dCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dProductInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dSNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dDate" Type="DateTime" Precision="0" />
+    <Property Name="dName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MainView">
+    <Key>
+      <PropertyRef Name="dSN" />
+    </Key>
+    <Property Name="dCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="dSN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dHEASID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="heas_depoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CategoryTable" EntityType="Self.CategoryTable" />
+    <EntitySet Name="DeleteProcess" EntityType="Self.DeleteProcess" />
+    <EntitySet Name="Login" EntityType="Self.Login" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="WarehouseTbl" EntityType="Self.WarehouseTbl" />
+    <EntitySet Name="DeletedView" EntityType="Self.DeletedView" />
+    <EntitySet Name="MainView" EntityType="Self.MainView" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+</Schema>
