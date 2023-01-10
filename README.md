@@ -42,7 +42,7 @@ Tebrikler! Sisteme yerel veritabanınızı bağladınız ve artık uygulamayı �
 
 Sisteme giriş yaptığınızda öncelikle karşınızda login sayfası belirecek. Burada admin@admin.com ve 12345 bigilerini kullanarak ve Captcha doğrulamasını geçerek giriş yapabilirsiniz. 
 
-(Not: Sistem oluşturulan kullanıcıların şifrelerini hashlediğinden dolayı veritabanında şifreleri görüntüleyemeyeceksiniz. Bu nedenle veritabanınızdan kullanıcılarınızın şifre sızdırımı gerçekleştirilemez.)
+***(Not: Sistem oluşturulan kullanıcıların şifrelerini hashlediğinden dolayı veritabanında şifreleri görüntüleyemeyeceksiniz. Bu nedenle veritabanınızdan kullanıcılarınızın şifre sızdırımı gerçekleştirilemez.)***
 
 ![Screenshot_12](https://user-images.githubusercontent.com/73427323/211587269-4ec645f8-eb9e-4e23-a59a-07dec0f17233.png)
 
